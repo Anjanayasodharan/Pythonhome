@@ -12,7 +12,24 @@ while True:
     choice = int(input('enter an option:'))
     if(choice==1):
         print('book enter selected')
-        break
+      
+
+    temperature = input("enter the temperature")
+
+    humidity = input("enter the humidity")
+
+    moisture = input("enter the moisture")
+
+    sql = 'INSERT INTO `sensorvalues`(`temperature`, `humidity`, `moisture`, `date`) VALUES (%s,%s,%s,now())'
+
+    data = (temperature,humidity,moisture)
+
+    mycursor.execute(sql , data)
+
+    mydb.commit()
+
+    print("value inserted succesfully")
+    break
     if (choice==2):
         print ('view')
         break
